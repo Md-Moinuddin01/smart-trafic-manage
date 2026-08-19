@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Smart City Mobility{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="city-grid" aria-hidden="true"></div>
+  <div class="container hero-content">
+    <span class="eyebrow light">● Network online · 128 signals connected</span>
+    <h1>Traffic that thinks<br><em>ahead.</em></h1>
+    <p>One intelligent platform turns live road data into safer routes, faster emergency response, and a city that keeps moving.</p>
+    <div class="hero-actions"><a class="button button-primary" href="{{ url_for('dashboard') }}">Explore live dashboard <span>→</span></a><a class="text-link light" href="{{ url_for('about') }}">How it works</a></div>
+    <div class="hero-metrics">
+      <div><strong>24/7</strong><span>Network awareness</span></div>
+      <div><strong>−28%</strong><span>Potential delays</span></div>
+      <div><strong>4 min</strong><span>Emergency response</span></div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-heading"><div><span class="eyebrow">A city in sync</span><h2>Every journey, intelligently coordinated.</h2>
+    </div>
+    <p>SmartFlow combines signal control, live monitoring, and predictive analytics in one clear operational picture.</p>
+  </div>
+    <div class="feature-grid">
+      <article class="feature-card"><span class="icon">◉</span><h3>Real-time control</h3><p>See live traffic flow and signal health across every connected corridor.</p><a href="{{ url_for('monitoring') }}">View monitoring →</a></article>
+      <article class="feature-card"><span class="icon">⌁</span><h3>Predictive insight</h3><p>Spot congestion patterns early with readable, actionable analytics.</p><a href="{{ url_for('analytics') }}">Explore analytics →</a></article>
+      <article class="feature-card accent-card"><span class="icon">✚</span><h3>Emergency priority</h3><p>Create green corridors that help first responders arrive sooner.</p><a href="{{ url_for('emergency') }}">Open priority center →</a></article>
+    </div>
+  </div>
+</section>
+<section class="cta-band">
+  <div class="container"><div>
+    <span class="eyebrow light">Ready to move?</span>
+    <h2>Make every signal count.</h2>
+  </div><a class="button button-white" href="{{ url_for('contact') }}">Talk to our city team →</a>
+</div></section>
+{% endblock %}
