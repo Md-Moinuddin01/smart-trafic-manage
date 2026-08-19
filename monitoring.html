@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Traffic Monitoring{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="container"><div><span class="eyebrow">Street-level visibility</span><h1>Traffic monitoring</h1><p>Search corridors and review the latest network conditions.</p></div><span class="live-pill">● Refreshes on load</span></div></section>
+<section class="section compact"><div class="container">
+  <form class="search-form" method="get"><label for="q">Search roads</label><div><input id="q" name="q" value="{{ query }}" placeholder="Try “Central Avenue”"><button class="button button-primary" type="submit">Search</button></div></form>
+  <div class="table-wrap"><table><thead><tr><th>Road name</th><th>Vehicle count</th><th>Traffic density</th><th>Signal status</th><th>Last updated</th></tr></thead><tbody>{% for road in roads %}<tr><td><strong>{{ road.road }}</strong></td><td>{{ road.vehicles }}</td><td><span class="badge {{ road.density|lower }}">{{ road.density }}</span></td><td><span class="signal-dot"></span>{{ road.signal }}</td><td>{{ road.updated }}</td></tr>{% else %}<tr><td colspan="5" class="empty">No matching roads found.</td></tr>{% endfor %}</tbody></table></div>
+</div></section>
+{% endblock %}
