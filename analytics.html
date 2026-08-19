@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Traffic Analytics{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="container"><div><span class="eyebrow">Data into decisions</span><h1>Traffic analytics</h1><p>Patterns and trends generated from sample city traffic data.</p></div><span class="live-pill">Python powered</span></div></section>
+<section class="section compact"><div class="container chart-grid">
+  <article class="chart-card wide"><div><span class="eyebrow">Today</span><h2>Hourly traffic</h2></div><img src="{{ url_for('static', filename='charts/hourly_traffic.png') }}" alt="Line chart of hourly traffic volume"></article>
+  <article class="chart-card"><div><span class="eyebrow">Seven days</span><h2>Congestion trends</h2></div><img src="{{ url_for('static', filename='charts/congestion_trends.png') }}" alt="Bar chart of weekly congestion"></article>
+  <article class="chart-card"><div><span class="eyebrow">Mode share</span><h2>Vehicle distribution</h2></div><img src="{{ url_for('static', filename='charts/vehicle_distribution.png') }}" alt="Donut chart showing vehicle distribution"></article>
+</div></section>
+{% endblock %}
