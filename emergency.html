@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Emergency Priority{% endblock %}
+{% block content %}
+<section class="page-hero emergency-hero"><div class="container"><div><span class="eyebrow light">Priority response network</span><h1>Clear the way.</h1><p>Coordinated green corridors for emergency teams when every second matters.</p></div><span class="emergency-status">● 2 routes active</span></div></section>
+<section class="section compact"><div class="container">
+  <div class="route-banner"><div class="route-map"><span class="route-node start">A</span><span class="route-line"></span><span class="route-node">2</span><span class="route-line"></span><span class="route-node end">H</span></div><div><span class="eyebrow">Highlighted route</span><h2>Central Avenue → City Hospital</h2><p>6 signals synchronized · estimated arrival in 4 minutes</p></div></div>
+  <div class="request-grid">{% for item in requests %}<article class="request-card"><div class="request-top"><span class="priority-icon">{{ "✚" if item.type == "Medical" else "▲" if item.type == "Fire" else "★" }}</span><span class="badge {{ 'high' if loop.first else 'medium' }}">{{ item.type }}</span></div><h3>{{ item.unit }}</h3><p>{{ item.route }}</p><div class="request-meta"><span><small>ETA</small><strong>{{ item.eta }}</strong></span><span><small>Signal status</small><strong>{{ item.status }}</strong></span></div></article>{% endfor %}</div>
+</div></section>
+{% endblock %}
