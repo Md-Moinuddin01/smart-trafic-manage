@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="container"><div><span class="eyebrow">Live operations</span><h1>City traffic dashboard</h1><p>A real-time snapshot of mobility across the network.</p></div><span class="live-pill">● Live data</span></div></section>
+<section class="section compact"><div class="container">
+  <div class="stats-grid">
+    <article class="stat-card"><span class="stat-icon blue">▰</span><div><span>Total vehicles</span><strong>{{ "{:,}".format(stats.vehicles) }}</strong><small>Across monitored roads</small></div></article>
+    <article class="stat-card"><span class="stat-icon orange">!</span><div><span>Congested roads</span><strong>{{ stats.congested }}</strong><small>Requires attention</small></div></article>
+    <article class="stat-card"><span class="stat-icon green">↗</span><div><span>Average speed</span><strong>{{ stats.speed }} <i>km/h</i></strong><small>Network-wide average</small></div></article>
+    <article class="stat-card"><span class="stat-icon purple">◉</span><div><span>Signals active</span><strong>{{ stats.signals }}</strong><small>99.2% availability</small></div></article>
+  </div>
+  <div class="panel">
+    <div class="panel-heading"><div><span class="eyebrow">Network pulse</span><h2>Priority corridors</h2></div><a class="text-link" href="{{ url_for('monitoring') }}">View all roads →</a></div>
+    <div class="road-list">{% for road in roads %}<div class="road-row"><span class="road-dot {{ road.density|lower }}"></span><div><strong>{{ road.road }}</strong><small>{{ road.vehicles }} vehicles detected</small></div><span class="badge {{ road.density|lower }}">{{ road.density }}</span></div>{% endfor %}</div>
+  </div>
+</div></section>
+{% endblock %}
